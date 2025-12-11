@@ -83,18 +83,18 @@ public class AdvancedTech extends JavaPlugin implements SlimefunAddon {
 
 
 
-        ItemStack advanced_tech_define = new CustomItemStack(PlayerHead.getItemStack(PlayerSkin.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2I4NTg5ZTY3YTNhM2QxMmJmYzljOTgyMTBiMTAyYTM3MWQwNTIwNzk4YWU3MDBiMzYzMzVlOTlmNjkzMzc4ZCJ9fX0=")), "&4Advanced Tech", "The Most Advanced Tech in all of SF.", "&a> Click to open");
+        ItemStack advanced_tech_define = CustomItemStack.create(PlayerHead.getItemStack(PlayerSkin.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2I4NTg5ZTY3YTNhM2QxMmJmYzljOTgyMTBiMTAyYTM3MWQwNTIwNzk4YWU3MDBiMzYzMzVlOTlmNjkzMzc4ZCJ9fX0=")), "&4Advanced Tech", "The Most Advanced Tech in all of SF.", "&a> Click to open");
         NamespacedKey advanced_tech_id = new NamespacedKey(this, "advanced_tech");
         ItemGroup advanced_tech_category = new ItemGroup(advanced_tech_id, advanced_tech_define);
 
 
-        ItemStack[] boosted_carbonado_recipe = { SlimefunItems.CARBONADO, SlimefunItems.CARBONADO, null, SlimefunItems.CARBONADO, SlimefunItems.CARBONADO, null, null, null, null };
+        ItemStack[] boosted_carbonado_recipe = { SlimefunItems.CARBONADO.item(), SlimefunItems.CARBONADO.item(), null, SlimefunItems.CARBONADO.item(), SlimefunItems.CARBONADO.item(), null, null, null, null };
         boosted_carbonado boosted_carbonado = new boosted_carbonado(advanced_tech_category, BaseItems.boosted_carbonado_, RecipeType.ENHANCED_CRAFTING_TABLE, boosted_carbonado_recipe);
 
-        ItemStack[] framed_uranium_recipe = { SlimefunItems.CARBONADO, SlimefunItems.URANIUM, SlimefunItems.CARBONADO, SlimefunItems.URANIUM, SlimefunItems.BOOSTED_URANIUM, SlimefunItems.URANIUM, SlimefunItems.CARBONADO, SlimefunItems.URANIUM, SlimefunItems.CARBONADO };
+        ItemStack[] framed_uranium_recipe = { SlimefunItems.CARBONADO.item(), SlimefunItems.URANIUM.item(), SlimefunItems.CARBONADO.item(), SlimefunItems.URANIUM.item(), SlimefunItems.BOOSTED_URANIUM.item(), SlimefunItems.URANIUM.item(), SlimefunItems.CARBONADO.item(), SlimefunItems.URANIUM.item(), SlimefunItems.CARBONADO.item() };
         framed_uranium framed_uranium = new framed_uranium(advanced_tech_category, BaseItems.framed_uranium_, RecipeType.ENHANCED_CRAFTING_TABLE, framed_uranium_recipe);
 
-        ItemStack[] fire_cake_recipe = { null, SlimefunItems.TINY_URANIUM, null, null, new ItemStack(Material.CAKE), null, null, new ItemStack(Material.FLINT_AND_STEEL), null };
+        ItemStack[] fire_cake_recipe = { null, SlimefunItems.TINY_URANIUM.item(), null, null, new ItemStack(Material.CAKE), null, null, new ItemStack(Material.FLINT_AND_STEEL), null };
         FireCake fire__cake = new FireCake(advanced_tech_category, BaseItems.fire_cake, RecipeType.MAGIC_WORKBENCH, fire_cake_recipe);
 
         boosted_carbonado.register(this);
@@ -103,11 +103,11 @@ public class AdvancedTech extends JavaPlugin implements SlimefunAddon {
         
 
         
-        ItemStack[] command_hub_recipe = { framed_uranium.getItem(), SlimefunItems.ANDROID_MEMORY_CORE, boosted_carbonado.getItem(), SlimefunItems.LARGE_CAPACITOR, SlimefunItems.POWER_CRYSTAL, SlimefunItems.NUCLEAR_REACTOR, boosted_carbonado.getItem(), SlimefunItems.ENERGY_CONNECTOR, framed_uranium.getItem() };
+        ItemStack[] command_hub_recipe = { framed_uranium.getItem(), SlimefunItems.ANDROID_MEMORY_CORE.item(), boosted_carbonado.getItem(), SlimefunItems.LARGE_CAPACITOR.item(), SlimefunItems.POWER_CRYSTAL.item(), SlimefunItems.NUCLEAR_REACTOR.item(), boosted_carbonado.getItem(), SlimefunItems.ENERGY_CONNECTOR.item(), framed_uranium.getItem() };
 
         command_hub command_hub = new command_hub(advanced_tech_category, BaseItems.command_hub_, RecipeType.ENHANCED_CRAFTING_TABLE, command_hub_recipe);
 
-        ItemStack[] command_engine_recipe = { framed_uranium.getItem(), SlimefunItems.BATTERY, framed_uranium.getItem(), SlimefunItems.ENERGY_CONNECTOR, SlimefunItems.POWER_CRYSTAL, SlimefunItems.ELECTRIC_MOTOR, framed_uranium.getItem(), boosted_carbonado.getItem(), framed_uranium.getItem() };
+        ItemStack[] command_engine_recipe = { framed_uranium.getItem(), SlimefunItems.BATTERY.item(), framed_uranium.getItem(), SlimefunItems.ENERGY_CONNECTOR.item(), SlimefunItems.POWER_CRYSTAL.item(), SlimefunItems.ELECTRIC_MOTOR.item(), framed_uranium.getItem(), boosted_carbonado.getItem(), framed_uranium.getItem() };
         command_engine command_engine = new command_engine(advanced_tech_category, BaseItems.command_engine_, RecipeType.ENHANCED_CRAFTING_TABLE, command_engine_recipe);
 
 
@@ -117,13 +117,13 @@ public class AdvancedTech extends JavaPlugin implements SlimefunAddon {
         
 
 
-        ItemStack[] handheld_digger_1_recipe = { SlimefunItems.BATTERY, SlimefunItems.ALUMINUM_BRONZE_INGOT, SlimefunItems.BATTERY, SlimefunItems.EXPLOSIVE_PICKAXE, SlimefunItems.POWER_CRYSTAL, SlimefunItems.EXPLOSIVE_PICKAXE, SlimefunItems.BATTERY, SlimefunItems.ALUMINUM_BRONZE_INGOT, SlimefunItems.BATTERY };
+        ItemStack[] handheld_digger_1_recipe = { SlimefunItems.BATTERY.item(), SlimefunItems.ALUMINUM_BRONZE_INGOT.item(), SlimefunItems.BATTERY.item(), SlimefunItems.EXPLOSIVE_PICKAXE.item(), SlimefunItems.POWER_CRYSTAL.item(), SlimefunItems.EXPLOSIVE_PICKAXE.item(), SlimefunItems.BATTERY.item(), SlimefunItems.ALUMINUM_BRONZE_INGOT.item(), SlimefunItems.BATTERY.item() };
         handheld_digger_1 basic_handheld_power_digger = new handheld_digger_1(advanced_tech_category, BaseItems.handheld_digger_1_, RecipeType.ENHANCED_CRAFTING_TABLE, handheld_digger_1_recipe);
 
-        ItemStack[] handheld_digger_2_recipe = { SlimefunItems.BATTERY, SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.BATTERY, basic_handheld_power_digger.getItem(), SlimefunItems.POWER_CRYSTAL, basic_handheld_power_digger.getItem(), SlimefunItems.BATTERY, SlimefunItems.BLISTERING_INGOT_3, SlimefunItems.BATTERY };
+        ItemStack[] handheld_digger_2_recipe = { SlimefunItems.BATTERY.item(), SlimefunItems.BLISTERING_INGOT_3.item(), SlimefunItems.BATTERY.item(), basic_handheld_power_digger.getItem(), SlimefunItems.POWER_CRYSTAL.item(), basic_handheld_power_digger.getItem(), SlimefunItems.BATTERY.item(), SlimefunItems.BLISTERING_INGOT_3.item(), SlimefunItems.BATTERY.item() };
         handheld_digger_2 advanced_handheld_power_digger = new handheld_digger_2(advanced_tech_category, BaseItems.handheld_digger_2_, RecipeType.ENHANCED_CRAFTING_TABLE, handheld_digger_2_recipe);
 
-        ItemStack[] handheld_digger_3_recipe = { boosted_carbonado.getItem(), framed_uranium.getItem(), boosted_carbonado.getItem(), advanced_handheld_power_digger.getItem(), SlimefunItems.POWER_CRYSTAL, advanced_handheld_power_digger.getItem(), boosted_carbonado.getItem(), framed_uranium.getItem(), boosted_carbonado.getItem() };
+        ItemStack[] handheld_digger_3_recipe = { boosted_carbonado.getItem(), framed_uranium.getItem(), boosted_carbonado.getItem(), advanced_handheld_power_digger.getItem(), SlimefunItems.POWER_CRYSTAL.item(), advanced_handheld_power_digger.getItem(), boosted_carbonado.getItem(), framed_uranium.getItem(), boosted_carbonado.getItem() };
         handheld_digger_3 carbonado_handheld_power_digger = new handheld_digger_3(advanced_tech_category, BaseItems.handheld_digger_3_, RecipeType.ENHANCED_CRAFTING_TABLE, handheld_digger_3_recipe);
 
 
@@ -137,7 +137,7 @@ public class AdvancedTech extends JavaPlugin implements SlimefunAddon {
 
 
 
-        ItemStack[] advanced_solar_gen_recipe = {SlimefunItems.SOLAR_GENERATOR_2, SlimefunItems.SOLAR_GENERATOR_2, SlimefunItems.SOLAR_GENERATOR_2, null, boosted_carbonado.getItem(), null, null, SlimefunItems.POWER_CRYSTAL, null};
+        ItemStack[] advanced_solar_gen_recipe = {SlimefunItems.SOLAR_GENERATOR_2.item(), SlimefunItems.SOLAR_GENERATOR_2.item(), SlimefunItems.SOLAR_GENERATOR_2.item(), null, boosted_carbonado.getItem(), null, null, SlimefunItems.POWER_CRYSTAL.item(), null};
         AdvancedSolarGen advanced_solar_gen = new AdvancedSolarGen(advanced_tech_category, BaseItems.advanced_solar_gen, RecipeType.ENHANCED_CRAFTING_TABLE, advanced_solar_gen_recipe, BaseItems.advanced_solar_gen_power_day, BaseItems.advanced_solar_gen_power_night);
 
         advanced_solar_gen.register(this);
