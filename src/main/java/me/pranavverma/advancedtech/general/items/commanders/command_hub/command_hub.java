@@ -12,13 +12,10 @@ import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.handlers.SimpleBlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerHead;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.skins.PlayerSkin;
-import lombok.Getter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.pranavverma.advancedtech.general.BaseItems;
-import me.pranavverma.advancedtech.general.items.solargen.AdvancedSolarGen.AdvancedSolarGen;
-import net.guizhanss.guizhanlib.slimefun.machines.TickingMenuBlock;
 import me.pranavverma.advancedtech.AdvancedTech;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -42,22 +39,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.util.HashMap;
 import java.util.Map;
 import org.bukkit.Location;
-
-
-import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
-import org.bukkit.Location;
-import org.bukkit.block.Block;
-import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockPlaceEvent;
-import org.bukkit.inventory.ItemStack;
-
-import javax.annotation.ParametersAreNonnullByDefault;
 
 
 public class command_hub extends SlimefunItem implements HologramOwner, Listener {
@@ -252,23 +233,23 @@ public class command_hub extends SlimefunItem implements HologramOwner, Listener
         HumanEntity human = event.getWhoClicked();
         Inventory inventory = event.getClickedInventory();
 
-        if (human instanceof Player && inventory != null && inventory.getSize() == 9 && inventory.getItem(0).hasItemMeta() && inventory.getItem(8).getType() == Material.BLACK_STAINED_GLASS && inventory.getItem(7).getType() == Material.BLACK_STAINED_GLASS && inventory.getItem(6).getType() == Material.BLACK_STAINED_GLASS) {
-            if (inventory.getItem(0) == null) {
-                
-            }
+        if (!(human instanceof Player) || inventory == null || inventory.getSize() != 9) {
+            return;
+        }
 
-            if (inventory.getItem(6) == null) {
-                
-            }
-            
-            if (inventory.getItem(7) == null) {
-                
-            }
+        ItemStack item0 = inventory.getItem(0);
+        ItemStack item6 = inventory.getItem(6);
+        ItemStack item7 = inventory.getItem(7);
+        ItemStack item8 = inventory.getItem(8);
 
-            if (inventory.getItem(8) == null) {
-                
-            }
+        if (item0 == null || item6 == null || item7 == null || item8 == null) {
+            return;
+        }
 
+        if (item0.hasItemMeta() && 
+            item8.getType() == Material.BLACK_STAINED_GLASS_PANE && 
+            item7.getType() == Material.BLACK_STAINED_GLASS_PANE && 
+            item6.getType() == Material.BLACK_STAINED_GLASS_PANE) {
             
             event.setResult(Result.DENY); // Cancel the click event
             event.setCancelled(true);
@@ -280,10 +261,25 @@ public class command_hub extends SlimefunItem implements HologramOwner, Listener
     public void onInventoryDrag(InventoryDragEvent event) {
         HumanEntity human = event.getWhoClicked();
         Inventory inventory = event.getInventory();
-        
-        
 
-        if (human instanceof Player && inventory != null && inventory.getSize() == 9 && inventory.getItem(0).hasItemMeta() && inventory.getItem(8).getType() == Material.BLACK_STAINED_GLASS && inventory.getItem(7).getType() == Material.BLACK_STAINED_GLASS && inventory.getItem(6).getType() == Material.BLACK_STAINED_GLASS) {
+        if (!(human instanceof Player) || inventory == null || inventory.getSize() != 9) {
+            return;
+        }
+
+        ItemStack item0 = inventory.getItem(0);
+        ItemStack item6 = inventory.getItem(6);
+        ItemStack item7 = inventory.getItem(7);
+        ItemStack item8 = inventory.getItem(8);
+
+        if (item0 == null || item6 == null || item7 == null || item8 == null) {
+            return;
+        }
+
+        if (item0.hasItemMeta() && 
+            item8.getType() == Material.BLACK_STAINED_GLASS_PANE && 
+            item7.getType() == Material.BLACK_STAINED_GLASS_PANE && 
+            item6.getType() == Material.BLACK_STAINED_GLASS_PANE) {
+            
             event.setCancelled(true); // Cancel the drag event
         }
     }

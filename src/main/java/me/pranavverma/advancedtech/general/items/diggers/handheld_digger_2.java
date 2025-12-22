@@ -3,10 +3,6 @@ package me.pranavverma.advancedtech.general.items.diggers;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-import org.bukkit.Material;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
